@@ -1,0 +1,564 @@
+@use "sass:math";
+/* rem适配 */
+
+
+/*将px转换成rem*/
+
+@function px2rem($px, $hpx: 100) {
+  @return (math.div($px, $hpx)) + rem;
+}
+
+// 基础设置
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box; // ！！！！
+  cursor: default;
+}
+
+a {
+  color: #333;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+a,
+u {
+  text-decoration: none
+}
+
+input {
+  padding: 0 px2rem(10)
+}
+
+input,
+button,
+select {
+  outline: 0;
+  border: none;
+}
+
+img {
+  object-fit: cover;
+}
+
+html {
+  font-size: 100px;
+  @media (max-width: 1200px) and (min-width: 960px) {
+      font-size: 70px !important;
+  }
+  @media (max-width: 960px) {
+      font-size: 90px !important;
+  }
+}
+
+body {
+  font-size: px2rem(16);
+  max-width: px2rem(2560);
+  margin: 0 auto;
+  font-family: "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+}
+
+//图标库(hcs图标通用)
+// @font-face {
+//   font-family: 'iconfont';
+//   /* Project id 4258840 */
+//   src: url('//at.alicdn.com/t/c/font_4258840_0xmvq2c016q.woff2?t=1730799533835') format('woff2'),
+//     url('//at.alicdn.com/t/c/font_4258840_0xmvq2c016q.woff?t=1730799533835') format('woff'),
+//     url('//at.alicdn.com/t/c/font_4258840_0xmvq2c016q.ttf?t=1730799533835') format('truetype');
+// }
+@font-face {
+  font-family: 'iconfont';
+  /* Project id 4258840 */
+  src: url('./font/iconfont.woff2') format('woff2'), url('./font/iconfont.woff') format('woff'), url('./font/iconfont.ttf') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  &.icon-31dianhua {
+      &::before {
+          content: '\e676';
+      }
+  }
+  &.icon-diyufenbutu {
+      &::before {
+          content: '\e62d';
+      }
+  }
+  &.icon-dianziyouxiang1 {
+      &::before {
+          content: '\e742';
+      }
+  }
+}
+
+// ---------------------------------------------------------------------------通用样式----------------------------
+.layout,
+.inner-layout {
+  width: px2rem(1400);
+  margin: 0 auto;
+  @media (max-width: 1200px) and (min-width: 960px) {
+      width: 960px;
+  }
+  @media (max-width: 960px) {
+      width: 100%;
+      padding: 0 20px;
+      min-width: 320px;
+  }
+}
+
+.container {
+  min-height: px2rem(500);
+  @media (max-width: 960px) {
+      min-height: 300px;
+  }
+}
+
+.mt20 {
+  margin-top: px2rem(20) !important;
+}
+
+.mt30 {
+  margin-top: px2rem(30) !important;
+}
+
+.mt40 {
+  margin-top: px2rem(40) !important;
+  @media (max-width: 960px) {
+      margin-top: 20px !important;
+  }
+}
+
+.mt50 {
+  margin-top: px2rem(50) !important;
+}
+
+.mt60 {
+  margin-top: px2rem(60) !important;
+  @media (max-width: 960px) {
+      margin-top: 30px !important;
+  }
+}
+
+.mb80 {
+  margin-bottom: px2rem(80) !important;
+  @media (max-width: 960px) {
+      margin-bottom: 40px !important;
+  }
+}
+
+.pt30 {
+  padding-top: px2rem(30) !important;
+}
+
+.pt40 {
+  padding-top: px2rem(40) !important;
+}
+
+.pb80 {
+  padding-bottom: px2rem(80) !important;
+  @media (max-width: 960px) {
+      padding-bottom: 40px !important;
+  }
+}
+
+// 浮动
+.fl {
+  float: left !important;
+}
+
+.fr {
+  float: right !important;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+  font-size: 0;
+  clear: both;
+}
+
+
+/*没有信息*/
+
+.nodata {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #aaa;
+  padding: 100px 0;
+  position: relative;
+  i {
+      font-size: 90px;
+      margin-bottom: 10px;
+  }
+}
+
+.noimg-txt {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(#fff, 0.6);
+  font-size: px2rem(24);
+  white-space: nowrap;
+}
+
+//内页布局
+.inner-container {
+  overflow: hidden;
+  min-height: 600px;
+}
+
+.detail-container {
+  border-top: 1px solid #e4e4e4;
+}
+
+.container {
+  min-height: 500px;
+}
+
+// -----------------------------------------------------------slick--------------------------------------------
+$slick-font-path: "./slider/fonts/" !default;
+$slick-loader-path: "./slider" !default;
+$slick-arrow-color: white !default;
+$slick-dot-color: black !default;
+$slick-prev-character: '\2190' !default;
+$slick-next-character: '\2192' !default;
+$slick-dot-character: '\2022' !default;
+
+/* Slider */
+
+.slick-slider {
+  position: relative;
+  display: block;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: none;
+  touch-action: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.slick-list {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+  &:focus {
+      outline: none;
+  }
+  &.dragging {
+      cursor: pointer;
+      cursor: hand;
+  }
+}
+
+.slick-slider .slick-list,
+.slick-track,
+.slick-slide,
+.slick-slide img {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+  zoom: 1;
+  margin-left: auto;
+  margin-right: auto;
+  &:before,
+  &:after {
+      content: "";
+      display: table;
+  }
+  &:after {
+      clear: both;
+  }
+  .slick-loading & {
+      visibility: hidden;
+  }
+}
+
+.slick-slide {
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  img {
+      display: block;
+  }
+  &.slick-loading img {
+      display: none;
+  }
+  display: none;
+  &.dragging img {
+      pointer-events: none;
+  }
+  .slick-initialized & {
+      display: block;
+  }
+  .slick-loading & {
+      visibility: hidden;
+  }
+  .slick-vertical & {
+      display: block;
+      height: auto;
+      border: 1px solid transparent;
+  }
+}
+
+// .slick-dots {
+//   position: absolute;
+//   bottom: 25px;
+//   display: block;
+//   width: 100%;
+//   text-align: center;
+//   li {
+//     display: inline-block;
+//     width: 15px;
+//     height: 15px;
+//     margin: 0 5px;
+//     padding: 0;
+//     border-radius: 15px;
+//     cursor: pointer;
+//     background-color: rgba($color: #fff, $alpha: 0.6);
+//     transition: .38s;
+//     button {
+//       display: none;
+//     }
+//     &.slick-active {
+//       width: 50px;
+//       background-color: #fff;
+//     }
+//     &:hover {
+//       background-color: #fff;
+//     }
+//   }
+// }
+
+/* Icons */
+
+@font-face {
+  font-family: "slick";
+  src: url("#{$slick-font-path}slick.eot");
+  src: url("#{$slick-font-path}slick.eot?#iefix") format("embedded-opentype"),
+  url("#{$slick-font-path}slick.woff") format("woff"),
+  url("#{$slick-font-path}slick.ttf") format("truetype"),
+  url("#{$slick-font-path}slick.svg#slick") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.slick-prev,
+.slick-next {
+  position: absolute;
+  display: block;
+  height: px2rem(20);
+  width: px2rem(20);
+  line-height: 0;
+  font-size: 0;
+  cursor: pointer;
+  background: transparent;
+  color: transparent;
+  top: 50%;
+  margin-top: px2rem(-10);
+  padding: 0;
+  border: none;
+  outline: none;
+  &:focus {
+      outline: none;
+  }
+  &.slick-disabled:before {
+      opacity: 0.25;
+  }
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-family: "slick";
+  font-size: px2rem(20);
+  line-height: 1;
+  color: $slick-arrow-color;
+  opacity: 0.85;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-prev {
+  left: px2rem(-25);
+  &:before {
+      content: $slick-prev-character;
+  }
+}
+
+.slick-next {
+  right: px2rem(-25);
+  &:before {
+      content: $slick-next-character;
+  }
+}
+
+
+/* Dots */
+
+.slick-slider {
+  margin-bottom: px2rem(30);
+}
+
+// .slick-dots {
+//   position: absolute;
+//   bottom: 0;
+//   list-style: none;
+//   display: block;
+//   text-align: center;
+//   padding: 0;
+//   width: 100%;
+//   li {
+//     position: relative;
+//     display: inline-block;
+//     height: px2rem(20);
+//     width: px2rem(20);
+//     margin: 0 px2rem(5);
+//     padding: 0;
+//     cursor: pointer;
+//     button {
+//       border: 0;
+//       background: transparent;
+//       display: block;
+//       height: px2rem(20);
+//       width: px2rem(20);
+//       outline: 0;
+//       line-height: 0;
+//       font-size: 0;
+//       color: transparent;
+//       padding: px2rem(5);
+//       cursor: pointer;
+//       &:focus {
+//         outline: 0;
+//       }
+//       &:before {
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         content: $slick-dot-character;
+//         width: px2rem(20);
+//         height: px2rem(20);
+//         font-family: "slick";
+//         font-size: px2rem(6);
+//         line-height: px2rem(20);
+//         text-align: center;
+//         color: $slick-dot-color;
+//         opacity: 0.25;
+//         -webkit-font-smoothing: antialiased;
+//         -moz-osx-font-smoothing: grayscale;
+//       }
+//     }
+//     &.slick-active button:before {
+//       opacity: 0.75;
+//     }
+//   }
+// }
+.slick-dots {
+  position: absolute;
+  bottom: 25px;
+  display: block;
+  width: 100%;
+  text-align: center;
+  li {
+      display: inline-block;
+      width: px2rem(16);
+      height: px2rem(16);
+      margin: 0 5px;
+      padding: 0;
+      border-radius: 15px;
+      cursor: pointer;
+      background-color: rgba($color: #fff, $alpha: 0.6);
+      transition: .38s;
+      button {
+          display: none;
+      }
+      &.slick-active {
+          width: px2rem(50);
+          background-color: #fff;
+      }
+      &:hover {
+          background-color: #fff;
+      }
+      @media (max-width:960px) {
+          width: 13px;
+          height: 13px;
+          &.slick-active {
+              width: 40px;
+              background-color: #fff;
+          }
+      }
+  }
+}
+
+// ----------------------------------------------------------------slickend------------------------------------------------
+//动画
+@keyframes popFadeIn {
+  from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 10%, 0);
+      -ms-transform: translate3d(0, 10%, 0);
+      transform: translate3d(0, 10%, 0);
+  }
+  to {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes popFadeInUp {
+  from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, -10%, 0);
+      -ms-transform: translate3d(0, -10%, 0);
+      transform: translate3d(0, -10%, 0);
+  }
+  to {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes showArrow {
+  from {
+      opacity: 0;
+      transform: translateX(-0.5rem);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0)
+  }
+}

@@ -1,0 +1,36 @@
+{
+      "head": "自定义指令",
+      "dec": [
+            {
+                  "tit": "自定义指令：",
+                  "main": [
+                        "在<script setup>中任何用v开头定义的方法都可在dom上用v-方法名来使用自定义指令",
+                        "不使用 <script setup> 的情况下，自定义指令需要通过 directives 选项注册",
+                        "或者在main.js中用app.directive(\"highlight\", {/* ... */})定义全局自定义指令"
+                  ]
+            },
+            {
+                  "tit": "常见用法：",
+                  "main": [
+                        "自动聚焦（v-focus）：当组件挂载时对输入框自动聚焦",
+                        "const vFocus = {mounted: (el) => el.focus()}",
+                        "<input v-focus />",
+                        "点击外部关闭（v-click-outside）：下拉菜单、弹窗、日期选择器，点击页面其他地方自动关闭。",
+                        "权限控制（v-permission）：根据用户角色/权限，无权限时隐藏或禁用元素。",
+                        "输入框格式化（v-format）自动格式化手机号、银行卡号、金额等。",
+                        "拖拽（v-draggable）：让元素可拖拽移动。",
+                        "图片懒加载（v-lazy）：图片进入视口才加载，节省带宽。"
+                  ]
+            }
+      ],
+      "intotal": [
+            "自定义指令生命周期：",
+            "created 绑定元素的 attribute 前",
+            "beforeMount 元素挂载前",
+            "mounted 元素挂载后 ✅",
+            "beforeUpdate 组件更新前",
+            "updated 组件更新后",
+            "beforeUnmount 组件卸载前",
+            "unmounted 组件卸载后"
+      ]
+}
