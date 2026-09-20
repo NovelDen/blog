@@ -75,54 +75,55 @@ const handleData = (val) => {
 
 <style lang="scss" scoped>
 .test {
-  font-size: 24px;
+  font-size: px2rem(24);
   text-align: center;
 }
 .wrapper {
-  margin: 10px 0;
+  margin: px2rem(10) 0;
   display: flex;
   flex-wrap: wrap;
   .nav {
-    margin-right: 10px;
+    margin-right: px2rem(10);
     border-radius: 20px;
-    border:2px solid #38BBB3;
-    padding:5px 10px;
+    border:2px solid $borderColor;
+    padding:px2rem(5) px2rem(10);
     cursor: pointer;
     transition: 0.3s;
     &:hover {
-      background-color: #38BBB3;
-      color: #fff;
+      background-color: $hoverColor;
+      border-color: $hoverColor;
+      color: $hovertext;
     }
     &.active {
-      border-color: #409eff;
-      background-color: #409eff;
-      color: #fff;
+      border-color: $focus;
+      background-color: $focus;
+      color: $focustext;
     }
   }
 }
 .decretion {
   .head {
-    font-size: 24px;
+    font-size: px2rem(24);
     text-align: center;
     cursor: text;
   }
 
   .dec {
-    padding: 0 20px;
-    font-size: 18px;
+    padding: 0 px2rem(20);
+    font-size: px2rem(18);
 
     .li {
-      margin-top: 5px;
+      margin-top: px2rem(5);
       display: flex;
       &::before {
         content: "⭐️";
-        margin-right: 5px;
+        margin-right: px2rem(5);
       }
     }
 
     .all {
-      margin-top: 10px;
-      padding: 0 20px;
+      margin-top: px2rem(10);
+      padding: 0 px2rem(20);
       .sub {
         color: #41B883;
       }

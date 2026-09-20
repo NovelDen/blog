@@ -1,18 +1,14 @@
 <template>
-  <!-- <div class="test">测试界面</div> -->
-  <RouterView>
-  </RouterView>
+  <div class="test"><RouterView> </RouterView></div>
 </template>
 
 <script setup>
 import { RouterLink, RouterView, useRoute } from "vue-router";
-
 </script>
 
 <style lang="scss" scoped>
 .test {
-  font-size: 24px;
-  text-align: center;
+  padding: 10px 20px;
 }
 </style>
 

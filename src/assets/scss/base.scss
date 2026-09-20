@@ -1,4 +1,5 @@
 @use "sass:math";
+@use "variables" as *;
 /* rem适配 */
 
 
@@ -31,8 +32,17 @@ u {
   text-decoration: none
 }
 
-input {
-  padding: 0 px2rem(10)
+input{
+  border: 1px solid $borderColor;
+}
+
+.testmain {
+  margin: 20px;
+  font-size: 0.16rem;
+  padding: 20px;
+  min-height: 400px;
+  border-radius: 20px;
+  border: 1px solid $borderColor;
 }
 
 input,

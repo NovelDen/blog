@@ -1,0 +1,14 @@
+/*全局mixin*/
+@mixin textEllipsis($line-height: 20, $number: 2, $height: $line-height * $number) {
+      $line-height: $line-height / 100 + rem;
+      $height: $height / 100 + rem;
+      line-height: $line-height;
+      max-height: $height;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+      word-wrap: break-word;
+      -webkit-line-clamp: $number;
+      -webkit-box-orient: vertical;
+      display: -webkit-box;
+    }

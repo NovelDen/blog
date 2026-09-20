@@ -67,16 +67,16 @@ watch(
     display: flex;
     align-items: center;
     height: 100vh;
-    width: 120px;
+    width: px2rem(120);
     flex-direction: column;
-    padding: 10px 0;
-    background: #0f1f36;
+    padding: px2rem(10) 0;
+    background: $mainColor;
     .logo {
       display: block;
       box-sizing: content-box;
-      padding: 0 10px;
-      width: 50px;
-      height: 50px;
+      padding: 0 px2rem(10);
+      width: px2rem(50);
+      height: px2rem(50);
     }
     .NavWrapper {
       display: flex;
@@ -87,27 +87,30 @@ watch(
       .link {
         width: 85%;
         color: #fff;
-        background: #152b47;
+        background: $sub2;
         text-align: center;
-        margin-top: 10px;
-        padding: 5px 0;
-        border: 2px solid #38BBB3;
+        margin-top: px2rem(10);
+        padding: px2rem(5) 0;
+        border: 2px solid $borderColor;
         border-radius: 20px;
         transition: 0.3s;
         &:hover{
-          background: #38BBB3;
+          background: $hoverColor;
+          color: $hovertext;
+          border-color: $hoverColor;
         }
         &.router-link-active{
-          background: #409EFF;
-          border-color: #409EFF;
+          background: $focus;
+          border-color: $focus;
+          color: $focustext;
         }
       }
     }
   }
   .right {
-    padding: 10px 20px;
+    // padding: 10px 20px;
     flex: 1;
-    margin-left: 120px;
+    margin-left: px2rem(120);
     overflow-y: auto;
   }
 }
