@@ -87,7 +87,7 @@ watch(
       .link {
         width: 85%;
         color: #fff;
-        background: $sub2;
+        background: $mainColor;
         text-align: center;
         margin-top: px2rem(10);
         padding: px2rem(5) 0;

@@ -82,9 +82,10 @@ body {
 //     url('//at.alicdn.com/t/c/font_4258840_0xmvq2c016q.ttf?t=1730799533835') format('truetype');
 // }
 @font-face {
-  font-family: 'iconfont';
-  /* Project id 4258840 */
-  src: url('./font/iconfont.woff2') format('woff2'), url('./font/iconfont.woff') format('woff'), url('./font/iconfont.ttf') format('truetype');
+  font-family: 'iconfont';  /* Project id 5237027 */
+  src: url('//at.alicdn.com/t/c/font_5237027_r83m58mvc3h.woff2?t=1789974697989') format('woff2'),
+       url('//at.alicdn.com/t/c/font_5237027_r83m58mvc3h.woff?t=1789974697989') format('woff'),
+       url('//at.alicdn.com/t/c/font_5237027_r83m58mvc3h.ttf?t=1789974697989') format('truetype');
 }
 
 .iconfont {
