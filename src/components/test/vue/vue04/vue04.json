@@ -27,7 +27,7 @@
             "自定义指令生命周期：",
             "created 绑定元素的 attribute 前",
             "beforeMount 元素挂载前",
-            "mounted 元素挂载后 ✅",
+            "mounted 元素挂载后 ",
             "beforeUpdate 组件更新前",
             "updated 组件更新后",
             "beforeUnmount 组件卸载前",

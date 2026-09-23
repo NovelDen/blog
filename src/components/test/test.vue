@@ -113,6 +113,9 @@ const handleData = (val) => {
     .li {
       margin-top: px2rem(5);
       display: flex;
+      .dectit{
+        width: fit-content;
+      }
       &::before {
         content: "⭐️";
         margin-right: px2rem(5);

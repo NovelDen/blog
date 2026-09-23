@@ -10,7 +10,23 @@
             {
                   "tit": "原因：",
                   "main": [
-                        "父组件路由根节点是/"
+                        "devtools 里显示 /vue01，但代码里 .value 读到 /：看的不是同一个时刻的值。",
+                        "最常见的原因：路由其实又跳回去了",
+                        "很多时候存在静默的重定向或二次跳转，比如：",
+                        "有全局守卫做了 next('/') 或重定向",
+                        "目标路由组件里又执行了 router.push / router.replace",
+                        "404 兜底路由把 /vue01 重定向到了 /（但地址栏可能看起来正常，或被后续操作掩盖）",
+                        "也就是说：挂载瞬间确实是 /vue01（devtools 快照到了这一刻），等你后续读 .value 时已经变回 / 了。"
+                  ]
+            },
+            {
+                  "tit": "解决办法：",
+                  "main": [
+                        "使用watch监听路由变化，在路由变化时执行方法",
+                        "watch(() => route.path,() => {initActiveIndex();},{ immediate: true });",
+                        "可在路由上添加meta属性，使当前路由可使用meta属性获取当前路由信息",
+                        "{path: '/vue/vue01',name: '插槽',component: () => import('@/components/test/vue/vue01/vue01.vue'),meta: { type: 'vue', index: '1' },}",
+                        "在组件中就可使用route.meta获取当前路由信息"
                   ]
             }
       ],

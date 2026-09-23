@@ -2,7 +2,6 @@
   <div class="main">
     <Nav>
       <img alt="Vue logo" class="logo" src="@/assets/logo.svg" />
-
       <div class="NavWrapper">
         <RouterLink class="link" to="/">home</RouterLink>
         <RouterLink

@@ -8,4 +8,9 @@ export const js = [{
       name: '作用域',
       component: () => import('@/components/test/js/js02/js02.vue'),
       meta: { type: 'js', index: '2' }
+}, {
+      path: '/js/js03',
+      name: '闭包',
+      component: () => import('@/components/test/js/js03/js03.vue'),
+      meta: { type: 'js', index: '3' }
 }]
