@@ -142,7 +142,7 @@ import { RouterLink } from 'vue-router';
       z-index: 0;
       background-image: radial-gradient(
           circle at 90% 85%,
-          $mainColor 0%,
+          $sub 0%,
           transparent 80%
         ),
         radial-gradient(circle at 10% 15%, #fff 0%, transparent 100%);

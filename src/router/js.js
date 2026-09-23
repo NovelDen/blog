@@ -13,4 +13,9 @@ export const js = [{
       name: '闭包',
       component: () => import('@/components/test/js/js03/js03.vue'),
       meta: { type: 'js', index: '3' }
+}, {
+      path: '/js/js04',
+      name: '深拷贝与浅拷贝',
+      component: () => import('@/components/test/js/js04/js04.vue'),
+      meta: { type: 'js', index: '4' }
 }]

@@ -1,0 +1,47 @@
+{
+      "head": "深拷贝与浅拷贝",
+      "dec": [
+            {
+                  "tit": "深拷贝与浅拷贝：",
+                  "main": [
+                        "浅拷贝：只复制一层，新对象属性是基本类型复制值；如果属性是引用类型，复制的是内存地址，新旧对象共用同一个堆内存，修改引用属性互相影响。",
+                        "深拷贝：递归完整复制所有层级，所有引用类型都会开辟新内存，新旧对象完全独立，修改互不影响。"
+                  ]
+            },
+            {
+                  "tit": "浅拷贝实现方式：",
+                  "main": [
+                        "Object.assign()",
+                        "const newObj = Object.assign({}, obj)",
+                        "扩展运算符 `...`",
+                        "const newObj = {...obj}"
+                  ]
+            },
+            {
+                  "tit": "深拷贝实现方式：",
+                  "main": [
+                        "JSON.parse()",
+                        "JSON.parse(JSON.stringify(obj))",
+                        "递归实现",
+                        "function deepClone(obj) {",
+                        "  let newObj = Array.isArray(obj) ? [] : {};",
+                        "  for (let key in obj) {",
+                        "    if (obj.hasOwnProperty(key)) {",
+                        "newObj[key] = typeof obj[key] === 'object' ? deepClone(obj[key]) : obj[key]",
+                        "    }",
+                        "  }",
+                        "  return newObj;",
+                        "}",
+                        "structuredClone 原生深拷贝:原对象symbol()作为值时会报错并无法拷贝",
+                        "const newObj = structuredClone(obj)"
+                  ]
+            }
+      ],
+      "intotal": [
+            "1. 浅拷贝：复制第一层，引用类型共用堆内存，修改内层互相影响；方法：扩展运算符、Object.assign、slice、concat",
+            "2. JSON 序列化深拷贝：简单，缺点明显，丢函数、undefined，循环引用报错",
+            "3. 手写递归深拷贝：使用 WeakMap 解决循环引用，遍历自身属性递归复制",
+            "4. 浏览器原生 API：structuredClone，现代环境优先使用",
+            "> 小口诀：浅拷贝扒一层，引用共用内存；深拷贝扒到底，全部另起炉灶"
+      ]
+}
