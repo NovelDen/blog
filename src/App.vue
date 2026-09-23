@@ -39,9 +39,8 @@ const routeListMap = {
   vue: vue,
   js: js,
 };
-const setTestList = (path) => {
-  const match = path.replace(/^\/([a-zA-Z]+)\d+$/, "$1");
-  const list = routeListMap[match] ?? routeListMap.vue;
+const setTestList = () => {
+  const list = routeListMap[route.meta.type];
   if (list) {
     setrouteChildrenList(...list);
   }

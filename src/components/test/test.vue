@@ -39,8 +39,8 @@
 
 <script setup>
 import router from "@/router";
-import { ref, onMounted, reactive, toRaw,watch } from "vue";
-import { RouterLink, RouterView, useRoute } from "vue-router";
+import { ref,toRaw,watch } from "vue";
+import { RouterView,useRoute } from "vue-router";
 import {routeChildrenListStore} from "@/stores/route";
 import { storeToRefs } from "pinia";
 
@@ -56,9 +56,7 @@ const Totest = (index,path) => {
 };
 const route = useRoute();
 const initActiveIndex = () => {
-  const path = route.path;
-  const match = path.match(/\/*0(\d+)$/);
-  activeIndex.value = parseInt(match[1])-1;
+  activeIndex.value = parseInt(route.meta.index)-1;
 };
 
 watch(

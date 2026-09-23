@@ -7,7 +7,7 @@
           整理HTML、CSS、JavaScript、Vue等核心前端知识体系、以及自身研究的小功能
         </div>
         <div class="button">
-          <div class="learn"><span>开始学习</span></div>
+          <RouterLink class="learn" to="/vue"><span>开始学习</span></RouterLink>
           <div class="more"><span>了解更多</span></div>
         </div>
       </div>
@@ -35,12 +35,18 @@
           <div class="sub">API、原理、扩展</div>
         </div>
       </div>
-      <div class="bottom"></div>
+      <div class="bottom">
+        <div class="li"><span>页面结构</span></div>
+        <div class="li"><span>视觉效果</span></div>
+        <div class="li"><span>交互逻辑</span></div>
+        <div class="li"><span>功能实现</span></div>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { RouterLink } from 'vue-router';
 </script>
 
 <style lang="scss" scoped>
@@ -148,10 +154,10 @@
       display: flex;
       justify-content: space-between;
       width: calc(100% - 2rem);
-      .li { 
+      .li {
         padding: px2rem(40) px2rem(20);
         flex: 1;
-        height: px2rem(300); 
+        height: px2rem(300);
         border-radius: 20px;
         background: #fff;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -161,6 +167,7 @@
         justify-content: center;
         margin-left: px2rem(20);
         margin-right: px2rem(20);
+        transition: all 0.5s;
         cursor: pointer;
         position: relative;
         flex-shrink: 0;
@@ -171,7 +178,7 @@
         &:last-child {
           margin-right: 0;
         }
-        &::before { 
+        &::before {
           content: "";
           position: absolute;
           bottom: 0;
@@ -183,36 +190,41 @@
           z-index: 1;
           transition: all 0.5s;
         }
-        &:hover{
-          &::before { 
+        &:hover {
+          transform: translate(0, -10%);
+          &::before {
             width: 100%;
             height: 100%;
             border-radius: 20px;
           }
-          i,.tit,.sub{
+          i,
+          .tit,
+          .sub {
             color: #fff;
           }
         }
-        i,.tit,.sub{
+        i,
+        .tit,
+        .sub {
           cursor: pointer;
           margin-bottom: px2rem(10);
           z-index: 1;
           transition: all 0.5s;
         }
-        i{
+        i {
           font-size: px2rem(54);
           color: $sub;
         }
-        .tit{
+        .tit {
           font-size: px2rem(28);
         }
-        .sub{
+        .sub {
           font-size: px2rem(20);
         }
       }
     }
-    .bottom { 
-      height: px2rem(300);
+    .bottom {
+      height: px2rem(250);
       margin: px2rem(40) px2rem(40);
       width: calc(100% - 2rem);
       z-index: 2;
@@ -221,7 +233,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      &::before { 
+      &::before {
         content: "";
         position: absolute;
         width: 100%;
@@ -233,7 +245,7 @@
         z-index: -2;
         background: $sub;
       }
-      &::after { 
+      &::after {
         content: "";
         position: absolute;
         width: 100%;
@@ -244,6 +256,45 @@
         z-index: -1;
         background: #fff;
         box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+      }
+      .li{
+        padding: px2rem(20) px2rem(40);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        border-radius: 20px;
+        margin-right: px2rem(20);
+        font-size: px2rem(20);
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        &::before{
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0;
+          height: 100%;
+          background: $sub;
+          border-radius: 20px;
+          z-index: 0;
+          transition: all 0.5s;
+        }
+        span{
+          position: relative;
+          z-index: 1;
+          transition: all 0.5s;
+          cursor: pointer;
+        }
+        &:hover{
+          &::before{
+            width: 100%;
+          }
+          span{
+            color: #fff;
+          }
+        }
+        &:last-child{
+          margin-right: 0;
+        }
       }
     }
   }

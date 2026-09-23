@@ -32,7 +32,7 @@ const router = createRouter({
     {
       path: '/test',
       name: 'test',
-      redirect:'/vue01',
+      redirect:'/vue/vue01',
       component: () => import('@/views/test.vue'),
       children:childrenList,
     },
