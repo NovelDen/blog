@@ -9,7 +9,7 @@ export const childrenList = [{
 },{
   path: '/js',
   name: 'js',
-  redirect: '/js/js01',
+  redirect: '/js/js05',
   component: () => import('@/components/test/test.vue'),
   children:js,
 }]

@@ -1,0 +1,27 @@
+{
+      "head": "js类型",
+      "dec": [
+            {
+                  "tit": "js类型：",
+                  "main": [
+                        "js的类型分为值类型和引用类型两种，值类型有7 种，引用类型有对象和数组。"
+                  ]
+            },{
+                  "tit": "值类型：",
+                  "main": [
+                        "值存放在栈内存，赋值是值拷贝",
+                        "number、string、boolean、null、undefined、symbol、BigInt"
+                  ]
+            },{
+                  "tit": "引用类型：",
+                  "main": [
+                        "引用类型本质只有Object，Array、Function、Date、RegExp 都是 Object 的子类；数据存堆内存，变量保存的是内存地址引用，赋值是引用拷贝"
+                  ]
+            }
+      ],
+      "intotal": [
+            "typeof 可对值类型、函数进行判断,但不能区分 null、数组、普通对象。",
+            "typeof null === 'object'这是 JavaScript 语言的一个历史遗留问题，早期js用32位二进制表示类型，null前三位为000，正好是object，为了兼容性，JS 语言无法更改。",
+            "instanceof 可以区分 null、数组、普通对象。"
+      ]
+}
