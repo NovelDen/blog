@@ -1,5 +1,38 @@
 <template>
-  <div class="testmain"></div>
+  <div class="testmain">
+    <div class="dec">
+      <div class="tit">浅拷贝</div>
+      <div class="sub">
+        <div class="li">const newObj = Object.assign({}, obj)</div>
+        <div class="li">const newObj = {...obj}</div>
+      </div>
+    </div>
+    <div class="dec">
+      <div class="tit">深拷贝</div>
+      <div class="sub">
+        <div class="li">JSON.parse(JSON.stringify(obj))</div>
+        <div class="li">
+          <pre>
+function deepClone(obj) {
+  // 判断是否为空或对象
+  if (obj === null || typeof obj !== "object") return obj;
+  // 根据对象类型创建新的对象
+  let newObj = Array.isArray(obj) ? [] : {};
+  for (let key in obj) {
+    //判断是否有原型属性
+    if (obj.hasOwnProperty(key)) {
+      //判断key当前值是否为对象，是则递归拷贝
+      newObj[key] = typeof obj[key] === "object" ? deepClone(obj[key]) : obj[key];
+    }
+  }
+  return newObj;
+}
+          </pre>
+        </div>
+        <div class="li">const newObj = structuredClone(obj)</div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
@@ -49,7 +82,8 @@ function deepClone(obj) {
   let newObj = Array.isArray(obj) ? [] : {};
   for (let key in obj) {
     if (obj.hasOwnProperty(key)) {
-      newObj[key] = typeof obj[key] === "object" ? deepClone(obj[key]) : obj[key];
+      newObj[key] =
+        typeof obj[key] === "object" ? deepClone(obj[key]) : obj[key];
     }
   }
   return newObj;

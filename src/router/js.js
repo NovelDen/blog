@@ -24,4 +24,9 @@ export const js = [{
       name: '深拷贝与浅拷贝',
       component: () => import('@/components/test/js/js04/js04.vue'),
       meta: { type: 'js', index: '5' }
+}, {
+      path: '/js/js06',
+      name: '数组常用方法',
+      component: () => import('@/components/test/js/js06/js06.vue'),
+      meta: { type: 'js', index: '6' }
 }]
