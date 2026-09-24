@@ -43,6 +43,22 @@ input{
   min-height: 400px;
   border-radius: 20px;
   border: 1px solid $borderColor;
+  .dec{
+    margin-top: px2rem(20);
+    &:first-child{
+      margin-top: 0;
+    }
+    .tit{
+      font-size: px2rem(18);
+      // margin-left: px2rem(5);
+      &::before{
+        content: '\10239';
+        font-family: 'iconfont';
+        color: $sub3;
+        font-size: px2rem(24);
+      }
+    }
+  }
 }
 
 input,
@@ -83,9 +99,9 @@ body {
 // }
 @font-face {
   font-family: 'iconfont';  /* Project id 5237027 */
-  src: url('//at.alicdn.com/t/c/font_5237027_r83m58mvc3h.woff2?t=1789974697989') format('woff2'),
-       url('//at.alicdn.com/t/c/font_5237027_r83m58mvc3h.woff?t=1789974697989') format('woff'),
-       url('//at.alicdn.com/t/c/font_5237027_r83m58mvc3h.ttf?t=1789974697989') format('truetype');
+  src: url('//at.alicdn.com/t/c/font_5237027_v0678l3d1j.woff2?t=1790257987478') format('woff2'),
+       url('//at.alicdn.com/t/c/font_5237027_v0678l3d1j.woff?t=1790257987478') format('woff'),
+       url('//at.alicdn.com/t/c/font_5237027_v0678l3d1j.ttf?t=1790257987478') format('truetype');
 }
 
 .iconfont {

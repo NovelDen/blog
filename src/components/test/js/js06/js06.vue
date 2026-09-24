@@ -30,6 +30,36 @@
         <div class="li">reduce()：arr.reduce((pre,cur)=>{return pre+cur;},0)</div>
       </div>
     </div>
+    <div class="dec">
+      <div class="tit">手写冒泡排序</div>
+      <div class="sub">
+        <pre>
+Array.prototype.mySort = function(fn){
+  let arr = this
+  //判断是否传入排序方式，没有则使用默认排序方式
+  if(typeof fn !== "function"){
+    fn = (a,b)=>{
+      a = String(a)//转为字符串进行unicode比较
+      b = String(b)
+      if(a＞b)return 1
+      if(a＜b)return -1
+      return 0
+    }
+  }
+  //冒泡排序
+  for(let i=0;i＜arr.length-1;i++){//冒泡排序最后一次冒泡不需要比较
+    for(let j=0;j＜arr.length-1-i;j++){//此次比较次数应减去已经冒泡的次数
+      //判断当前项和下一项，如果当前项大于下一项，则交换位置
+      if(fn(arr[j],arr[j+1])＞0){
+        [arr[j],arr[j+1]] = [arr[j+1],arr[j]]
+      }
+    }
+  }
+  return arr
+}
+        </pre>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -77,21 +107,27 @@ arr.indexOf(1)//查询索引，没有返回-1
 let newArr11 = arr.reduce((pre,cur)=>{return pre+cur;},0)//数组元素求和或求积
 
 Array.prototype.mySort = function(fn){
+  console.log("mySort：",this);
   let arr = this
+  //判断是否传入排序方式，没有则使用默认排序方式
   if(typeof fn !== "function"){
     fn = (a,b)=>{
-      a = String(a)
+      a = String(a)//转为字符串进行unicode比较
       b = String(b)
       if(a>b)return 1
       if(a<b)return -1
       return 0
     }
   }
-  for(let i=0;i<arr.length-1;i++){
-    for(let j=0;j<arr.length-1-i;j++){
+  //冒泡排序
+  for(let i=0;i<arr.length-1;i++){//冒泡排序最后一次冒泡不需要比较
+    for(let j=0;j<arr.length-1-i;j++){//此次比较次数应减去已经冒泡的次数
+      //判断当前项和下一项，如果当前项大于下一项，则交换位置
+      console.log(arr[j],arr[j+1]);
       if(fn(arr[j],arr[j+1])>0){
         [arr[j],arr[j+1]] = [arr[j+1],arr[j]]
       }
+      console.log(arr);
     }
   }
   return arr
