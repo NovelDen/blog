@@ -76,7 +76,29 @@ arr.includes(1)//查询是否包含，满足返回true
 arr.indexOf(1)//查询索引，没有返回-1
 let newArr11 = arr.reduce((pre,cur)=>{return pre+cur;},0)//数组元素求和或求积
 
-// console.log(newArr11);
+Array.prototype.mySort = function(fn){
+  let arr = this
+  if(typeof fn !== "function"){
+    fn = (a,b)=>{
+      a = String(a)
+      b = String(b)
+      if(a>b)return 1
+      if(a<b)return -1
+      return 0
+    }
+  }
+  for(let i=0;i<arr.length-1;i++){
+    for(let j=0;j<arr.length-1-i;j++){
+      if(fn(arr[j],arr[j+1])>0){
+        [arr[j],arr[j+1]] = [arr[j+1],arr[j]]
+      }
+    }
+  }
+  return arr
+}
+
+let arrs = [3,4,2,5,1]
+console.log(arrs.mySort((a,b)=>b-a));
 
 
 import decretion from "./js06.json";
