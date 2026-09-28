@@ -52,6 +52,16 @@ watch(
   { immediate: true }
 );
 
+//响应式处理
+import {_resetSize} from "./utils/resize";
+import {myDebounce} from '@/utils/debounce.js';
+const resetSize = myDebounce(_resetSize, 10);
+onMounted(() => {
+  resetSize();
+  window.addEventListener('resize', ()=>{
+    resetSize();
+  })
+});
 </script>
 
 

@@ -129,12 +129,12 @@ import { RouterLink } from 'vue-router';
     flex: 1;
     position: relative;
     overflow: hidden;
-    min-height: 100vh;
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0 px2rem(40);
     &::before {
       content: "";
       position: absolute;
@@ -153,10 +153,11 @@ import { RouterLink } from 'vue-router';
       z-index: 1;
       display: flex;
       justify-content: space-between;
-      width: calc(100% - 2rem);
+      width: 100%;
       .li {
+        $limargin: px2rem(30);
         padding: px2rem(40) px2rem(20);
-        flex: 1;
+        width: calc(100% / 4 - 2 * $limargin);
         height: px2rem(300);
         border-radius: 20px;
         background: #fff;
@@ -165,8 +166,7 @@ import { RouterLink } from 'vue-router';
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-left: px2rem(20);
-        margin-right: px2rem(20);
+        margin:0 $limargin;
         transition: all 0.5s;
         cursor: pointer;
         position: relative;
@@ -225,8 +225,8 @@ import { RouterLink } from 'vue-router';
     }
     .bottom {
       height: px2rem(250);
-      margin: px2rem(40) px2rem(40);
-      width: calc(100% - 2rem);
+      margin: px2rem(40) 0;
+      width: 100%;
       z-index: 2;
       position: relative;
       border-radius: 20px;
@@ -298,5 +298,87 @@ import { RouterLink } from 'vue-router';
       }
     }
   }
+  @media (max-width:1600px) {
+    .right{
+      .nav{
+        .li{
+          $limargin1600: px2rem(20);
+          width: calc(100% / 4 - 2 * $limargin1600);
+          margin:0 $limargin1600;
+        }
+      }
+    }
+      
+    }
+    @media (max-width:1280px){
+
+    }
+    @media (max-width:960px){
+      flex-direction: column;
+      height: auto;
+      .left{
+        height: auto;
+        width: auto;
+        padding: px2rem(20) 0 px2rem(10) 0;
+        .leftmain{
+          transform: translate(0, 0);
+        }
+      }
+      .right{
+        padding: 0;
+        padding-top: px2rem(30);
+        overflow: initial;
+        &::before{
+          display: none;
+        }
+        .nav{
+          flex-wrap: wrap;
+          background: rgba($sub,0.6);
+          border-radius: 20px;
+          box-shadow: 0 0 10px rgba(#000,0.4);
+          .li{
+            $limargin960: px2rem(10);
+            width: calc(100% / 2 - $limargin960*2);
+            margin: $limargin960;
+            box-shadow: 0 0 10px rgba(#000,0.4);
+            padding: px2rem(20);
+            height: auto;
+            &:first-child{
+              margin-left: $limargin960;
+            }
+            &:last-child{
+              margin-right: $limargin960;
+            }
+            i{
+              margin-bottom: 0;
+            }
+            .tit,.sub{
+              display: none;
+            }
+          }
+        }
+        .bottom{
+          height: auto;
+          flex-wrap: wrap;
+          padding: px2rem(20);
+          justify-content: space-between;
+          .li{
+            margin-top: px2rem(10);
+            margin-right: 0;
+            padding: px2rem(20);
+            width: calc(100% / 2 - px2rem(20)/2);
+            &:nth-child(1),&:nth-child(2){
+              margin-top: 0;
+            }
+            span{
+              width: 100%;
+              font-size: px2rem(24);
+              text-align: center;
+              display: block;
+            }
+          }
+        }
+      }
+    }
 }
 </style>
