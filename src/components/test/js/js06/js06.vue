@@ -7,7 +7,9 @@
         <div class="li">pop()：arr.pop()</div>
         <div class="li">unshift()：arr.unshift(0,1)</div>
         <div class="li">shift()：arr.shift()</div>
-        <div class="li">splice ()：arr.splice(1,2) arr.splice(1,0,99) arr.splice(2,1,66)</div>
+        <div class="li">
+          splice ()：arr.splice(1,2) arr.splice(1,0,99) arr.splice(2,1,66)
+        </div>
       </div>
     </div>
     <div class="dec">
@@ -24,10 +26,14 @@
       <div class="tit">遍历不修改、返回其他值</div>
       <div class="sub">
         <div class="li">find()：arr.find((item)=>{return item%6===0;})</div>
-        <div class="li">findIndex()：arr.findIndex((item)=>{return item%6===0;})</div>
+        <div class="li">
+          findIndex()：arr.findIndex((item)=>{return item%6===0;})
+        </div>
         <div class="li">some()：arr.some((item)=>{return item%6===0;})</div>
         <div class="li">every()：arr.every((item)=>{return item%6===0;})</div>
-        <div class="li">reduce()：arr.reduce((pre,cur)=>{return pre+cur;},0)</div>
+        <div class="li">
+          reduce()：arr.reduce((pre,cur)=>{return pre+cur;},0)
+        </div>
       </div>
     </div>
     <div class="dec">
@@ -87,7 +93,7 @@ let newArr3 = arr.slice() //完整拷贝数组（浅拷贝）
 let newArr4 = newArr1.concat([1,2,3])//数组拼接，返回新数组
 let arr2 = newArr4.map((item)=>{item*2})//遍历，对每一项做处理，返回新数组
 let arr3 = newArr4.filter((item)=>{item%2===0})//过滤，返回新数组
-let arr4 = [1,[2,[3]]]
+let arr4 = [1,[2,[3]],[4,[5,6,[7,8]]]]
 let newArr5 = arr4.flat(1)//拉平一层[1,2,[3]]
 let newArr6 = arr4.flat(Infinity)//全部拉平 [1,2,3]
 
@@ -106,6 +112,7 @@ arr.includes(1)//查询是否包含，满足返回true
 arr.indexOf(1)//查询索引，没有返回-1
 let newArr11 = arr.reduce((pre,cur)=>{return pre+cur;},0)//数组元素求和或求积
 
+//手写冒泡排序
 Array.prototype.mySort = function(fn){
   console.log("mySort：",this);
   let arr = this
@@ -136,6 +143,26 @@ Array.prototype.mySort = function(fn){
 let arrs = [3,4,2,5,1]
 console.log(arrs.mySort((a,b)=>b-a));
 
+//手写flatten
+Array.prototype.myFlatten = function(depth=0){
+  console.log("myFlatten：",this);
+  let arr = this
+  if(depth===0 || depth===Infinity || depth<0){
+    while(arr.some((item)=>Array.isArray(item))){
+      arr = [].concat(...arr)
+    }
+    return arr
+  }
+  else{
+    let nowDepth = depth
+    while(nowDepth>0){
+      arr = [].concat(...arr)
+      nowDepth--
+    }
+    return arr
+  }
+}
+console.log(arr4.myFlatten(2));
 
 import decretion from "./js06.json";
 const emit = defineEmits(["send-data"]);

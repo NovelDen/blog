@@ -1,0 +1,17 @@
+{
+      "head": "ui二次封装",
+      "dec": [
+            {
+                  "tit": "封装组件需要注意三个点：",
+                  "main":["属性和方法、插槽、ref"]
+            },{
+                  "tit": "$attrs：",
+                  "main":["给组件标签本身传的属性 / 事件，例如 `<MyInput placeholder=\"xxx\" @blur=\"fn\" />`"]
+            },{
+                  "tit": "$slots：",
+                  "main":["父组件写在组件标签内部的插槽内容**（`<template #prepend> ... </template>`里面一大坨）"]
+            }
+      ],
+      "intotal": [
+      ]
+}

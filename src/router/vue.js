@@ -35,4 +35,9 @@ export const vue = [{
             component: () => import('@/components/test/vue/vue05/BBB.vue'),
             meta:{type: 'vue', index: '5',name:"BBB"}
       }]
+},{
+      path: '/vue/vue06',
+      name: 'ui二次封装',
+      component: () => import('@/components/test/vue/vue06/vue06.vue'),
+      meta: { type: 'vue', index: '6' }
 }]

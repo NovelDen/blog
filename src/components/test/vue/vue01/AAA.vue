@@ -1,8 +1,17 @@
 <template>
   <div class="childmain">
-    <div class="tit">AAA组件</div>
-    <slot name="header"></slot>
-    <slot name="main" :decretion="decretion"></slot>
+    <!-- 匿名插槽 -->
+    <div class="slot">
+      <div class="tit">AAA组件</div>
+    </div>
+    <!-- 具名插槽 -->
+    <div class="name">
+      <slot name="header"></slot>
+    </div>
+    <!-- 作用域插槽 -->
+    <div class="main">
+      <slot name="main" :decretion="decretion"></slot>
+    </div>
   </div>
 </template>
 
@@ -30,5 +39,10 @@ const decretion = [
   border: 1px solid #000;
   border-radius: 20px;
   width: fit-content;
+  .main{
+    padding: px2rem(10);
+    border: 1px solid #000;
+    border-radius: 20px;
+  }
 }
 </style>
