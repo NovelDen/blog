@@ -1,0 +1,48 @@
+{
+      "head": "原型与原型链",
+      "dec": [
+            {
+                  "tit": "原型与原型链：",
+                  "main": [
+                        "原型是对象的公共存储空间；原型链就是对象通过 `__proto__` 向上查找原型的一条链式查找链路"
+                  ]
+            },{
+                  "tit": "prototype（构造函数的原型属性）：",
+                  "main": [
+                        "只有函数才有 `prototype`，是构造函数身上的一个属性，值是一个对象，这个对象就是原型对象。",
+                        "我们一般把公共方法写在 `prototype` 上，避免每个实例都复制一份，节省内存。"
+                  ]
+            },{
+                  "tit": "proto 实例的隐式原型：",
+                  "main": [
+                        "每个对象（实例）都有 `__proto__`（隐式原型）",
+                        "实例 p 的隐式原型，指向构造函数 Person 的原型对象 `Person.prototype`",
+                        "`__proto__` 是非标准访问器属性，开发尽量不要直接读写；现代 js 推荐使用 `Object.getPrototypeOf()`"
+                  ]
+            },{
+                  "tit": "constructor 原型对象的构造器属性：",
+                  "main": [
+                        "原型对象 `Person.prototype` 自带 `constructor` 属性，指向回构造函数本身",
+                        "Person.prototype.constructor === Person"
+                  ]
+            },{
+                  "tit": "原型链：",
+                  "main": [
+                        "对象读取属性 / 方法时，先找自己本身，找不到就顺着 `__proto__` 一层一层向上找，直到 `null`，这条查找链条就是原型链。"
+                  ]
+            },{
+                  "tit": "`p.sayHi()`查找过程：",
+                  "main": [
+                        "先看 `p` 对象自身有没有 `sayHi`，没有",
+                        "通过 `p.__proto__` → `Person.prototype`，找到了 `sayHi`，执行",
+                        "如果 `Person.prototype` 还没有，继续：`Person.prototype.__proto__` → `Object.prototype`",
+                        "如果 Object.prototype 还没有：`Object.prototype.__proto__` → null，查找终止，返回 undefined"
+                  ]
+            }
+      ],
+      "intotal": [
+            "1.prototype 和 proto 的区别：函数独有，构造函数的显式原型对象，用于给实例提供共享属性方法；`__proto__`：对象独有，实例的隐式原型，指向构造函数的 prototype，构成原型链",
+            "2.原型链作用：实现属性方法共享，实现 js 的继承。",
+            "3.ES6 class 和原型关系：class 语法糖底层依然是原型,class 里面写的方法，就是加到 `Person.prototype` 上面。"
+      ]
+}

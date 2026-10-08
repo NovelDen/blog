@@ -29,4 +29,9 @@ export const js = [{
       name: '数组常用方法',
       component: () => import('@/components/test/js/js06/js06.vue'),
       meta: { type: 'js', index: '6' }
+}, {
+      path: '/js/js07',
+      name: '原型与原型链',
+      component: () => import('@/components/test/js/js07/js07.vue'),
+      meta: { type: 'js', index: '7' }
 }]
